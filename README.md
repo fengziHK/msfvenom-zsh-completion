@@ -15,8 +15,12 @@ git clone https://github.com/Green-m/msfvenom-zsh-completion ~/.oh-my-zsh/custom
 
 source ~/.zshrc
 ```
-
-## bug
-
-If you get stuck into troubles when using it, run `compinit` to reinitialize the zsh completion environment, reference [here](https://github.com/andsens/homeshick/issues/89).
-
+@#fengzi 2020309
+解决zsh补全msfvenom出现_values:compvalues:11: not enough arguments(参数不足)的问题
+1、venom-cache文件放入~\.zsh\
+2、~/.zshrc配置文件
+插件加入
+plugins=(git msfvenom)
+最后加入
+fpath=(~/.zsh/completion $fpath)
+autoload -Uz compinit && compinit -i 
